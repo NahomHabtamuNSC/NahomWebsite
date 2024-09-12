@@ -255,33 +255,55 @@ footer {
 .skill:nth-of-type(4) .progress {
     width: 70%; /* React.js */
 }
-/* Remove duplicate definitions */
+/* Styles for the loading screen */
 #loading {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    background-color: #111;
-    color: #ffd700;
+    top: 0;
+    left: 0;
+    background-color: #222; /* Dark background */
     display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 9999;
+    justify-content: center;
+    flex-direction: column; /* Stack elements vertically */
+    color: #fff;
+    z-index: 9999; /* Ensure it stays on top of other elements */
+    transition: opacity 0.5s ease; /* Fade-out transition */
 }
 
-.loader {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #ffd700; /* Yellow */
+/* Spinner animation */
+#loading .spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #FFD700; /* Yellow spinner */
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px; /* Space between spinner and text */
 }
 
+/* Loading text style */
+#loading .loading-text {
+    color: #FFD700; /* Yellow text */
+    font-size: 1.2rem;
+    margin-top: 10px; /* Adjust position of text relative to the spinner */
+}
+
+/* Spinner keyframes animation */
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Hide the loading screen when done */
+#loading.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* Main Content (Initially Hidden) */

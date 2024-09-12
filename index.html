@@ -6,17 +6,18 @@
     <title>Nahom's Portfolio</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
     <!-- Font Awesome for Icons -->
-   
+    <link rel="icon" href="./assets/Img/Logo.svg" type="image/x-icon"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-<!-- Loading Screen -->
-<div id="loading">
-    <div class="loader"></div>
-</div>
-
-<!-- Main Content (Initially Hidden) -->
-<div id="main-content" style="display:none;">
+    <div id="loading">
+        <div id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading...</div>
+    </div>
+      
+<!-- Main Content -->
+<div id="main-content" style="display:block;">
     <!-- Your existing content here -->
     <!-- Header Section -->
     <header>
@@ -60,14 +61,14 @@
             <h2>My Work</h2>
             <div class="grid-container">
                 <div class="grid-item">
-                    <h3>Project 1</h3>
-                    <p>Description of Project 1.</p>
-                    <a href="project1.html" class="project-link">View Details</a>
+                    <h3>Calculator</h3>
+                    <p>Create a calculator that can add, subtract, multiply, and divide. It should handle decimals and have clear/delete buttons. Use HTML, CSS, and JavaScript to build it. Design a user-friendly interface. Test it thoroughly and document your work.                    </p>
+                    <a href="./assets/Project/Simple Calculator/index.html" class="project-link">View Details</a>
                 </div>
                 <div class="grid-item">
-                    <h3>Project 2</h3>
-                    <p>Description of Project 2.</p>
-                    <a href="project2.html" class="project-link">View Details</a>
+                    <h3>Dicee</h3>
+                    <p>Description: Dicee is a simple web-based game where two dice are rolled, and the winner is determined by the higher roll. It displays an engaging user interface with custom fonts and colorful visuals.</p>
+                    <a href="./assets/Project/Dicee Challenge - Completed/dicee.html" class="project-link">View Details</a>
                 </div>
                 <div class="grid-item">
                     <h3>Project 3</h3>
@@ -190,33 +191,8 @@
 
 
     <!-- Scripts -->
-    <script type="module" src="app.js"></script>
+    <script type="module" src="./assets/js/app.js"></script>
 
-    <script type="text/babel">
-        // Your React code here
-        const { useState } = React;
 
-        function App() {
-            const [projects, setProjects] = useState([
-                { title: "Project 1", description: "Description of your first project.", link: "link-to-project" },
-                { title: "Project 2", description: "Description of your second project.", link: "link-to-project" }
-            ]);
-
-            return (
-                <div>
-                    <h2>My Projects</h2>
-                    {projects.map((project, index) => (
-                        <div key={index} className="project">
-                            <h3>{project.title}</h3>
-                            <p>{project.description}</p>
-                            <a href={project.link}>View Project</a>
-                        </div>
-                    ))}
-                </div>
-            );
-        }
-
-        ReactDOM.render(<App />, document.getElementById('react-root'));
-    </script>
 </body>
 </html>
