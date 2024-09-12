@@ -255,40 +255,6 @@ footer {
 .skill:nth-of-type(4) .progress {
     width: 70%; /* React.js */
 }
-/* Styles for the loading screen */
-#loading {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: #222; /* Dark background */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; /* Stack elements vertically */
-    color: #fff;
-    z-index: 9999; /* Ensure it stays on top of other elements */
-    transition: opacity 0.5s ease; /* Fade-out transition */
-}
-
-/* Spinner animation */
-#loading .spinner {
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    border-top: 4px solid #FFD700; /* Yellow spinner */
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
-    margin-bottom: 10px; /* Space between spinner and text */
-}
-
-/* Loading text style */
-#loading .loading-text {
-    color: #FFD700; /* Yellow text */
-    font-size: 1.2rem;
-    margin-top: 10px; /* Adjust position of text relative to the spinner */
-}
 
 /* Spinner keyframes animation */
 @keyframes spin {
@@ -299,14 +265,74 @@ footer {
         transform: rotate(360deg);
     }
 }
-
-/* Hide the loading screen when done */
-#loading.hidden {
-    opacity: 0;
-    pointer-events: none;
+.grid-item {
+    background-color: #2e2e2e; /* Dark background */
+    padding: 20px;
+    border-radius: 10px;
+    color: #f1f1f1; /* Light text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center; /* Center content */
+    transition: transform 0.3s ease; /* Animation for hover effect */
 }
 
-/* Main Content (Initially Hidden) */
-#main-content {
-    display: none;
+.grid-item h3 {
+    color: #ffd700; /* Golden color for title */
+    margin-bottom: 10px;
 }
+
+.grid-item p {
+    color: #d3d3d3; /* Light gray for description */
+    margin-bottom: 15px;
+}
+
+/* Project link style */
+.project-link {
+    color: #8a2be2; /* Purple color */
+    font-weight: bold;
+    text-decoration: none; /* Remove underline */
+    border: 2px solid transparent;
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    color: #fff; /* White text on hover */
+    background-color: #8a2be2; /* Purple background on hover */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: underline; /* Optional underline on hover */
+}
+
+/* Hover effect for grid-item */
+.grid-item:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+/* For modern browsers like Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ffd700; /* Golden color for the scrollbar */
+    border-radius: 10px;
+    border: 2px solid #000; /* Optional border for contrast */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Track color */
+}
+
+/* Add smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* For Firefox */
+html {
+    scrollbar-color: #ffd700 #000000; /* Golden thumb and light track */
+    scrollbar-width: thin;
+}
+
+
+
+

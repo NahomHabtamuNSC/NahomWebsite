@@ -46,22 +46,4 @@ function renderPortfolio() {
   }
 }
 
-// JavaScript to hide the loading screen and show the main content
-window.addEventListener('load', function() {
-  console.log('Page is fully loaded');
-  
-  setTimeout(function() {
-    console.log('Hiding loading screen and showing main content');
-    const loadingScreen = document.getElementById('loading');
-    const mainContent = document.getElementById('main-content');
 
-    if (loadingScreen && mainContent) {
-      loadingScreen.style.display = 'none';
-      mainContent.style.display = 'block';
-      // Call the function to render the portfolio after the loading screen
-      renderPortfolio();
-    } else {
-      console.error('Loading screen or main content element not found');
-    }
-  }, 2000); // 2 seconds delay
-});
