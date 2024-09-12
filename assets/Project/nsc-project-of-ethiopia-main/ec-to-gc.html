@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ethiopian date to Gregorian date</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTmEQcyhsev3RY_Rqg4rY35VTnD5l_NBNsI1xFU6Xn5TDD5P8mBR4izQ3ci0EmrHQFwWc&usqp=CAU">
+	<script>
+function ethiopianToGregorian() {
+    const ethYear = parseInt(document.getElementById('ethYear').value);
+    const ethMonth = parseInt(document.getElementById('ethMonth').value);
+    const ethDay = parseInt(document.getElementById('ethDay').value);
+
+    let gcYear = ethYear + 7;
+    let gcMonth = 9; // Starts from September
+    let gcDay = ethDay + 10; // Starts from 11 or 12 based on leap year calculation
+
+    if (ethMonth > 1) {
+        gcMonth += ethMonth - 1;
+    }
+
+    // Adjust the day overflow for each month
+    const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    if ((gcYear % 4 === 0 && gcYear % 100 !== 0) || gcYear % 400 === 0) {
+        daysInMonth[1] = 29; // February in a leap year
+    }
+
+    while (gcDay > daysInMonth[gcMonth - 1]) {
+        gcDay -= daysInMonth[gcMonth - 1];
+        gcMonth++;
+        if (gcMonth > 12) {
+            gcMonth = 1;
+            gcYear++;
+        }
+    }
+
+    document.getElementById('result').textContent = `Gregorian Date: ${gcYear}-${gcMonth}-${gcDay}`;
+    return false; // Prevent form submission
+}
+</script>
+</head>
+<body>
+	<img src="https://cdn.britannica.com/12/12-004-A40EEB6F/Flag-Ethiopia.jpg" alt="Ethiopian Flag" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+	<header>
+		<div class="container">
+			<h1> Ethiopian date to Gregorian date  </h1>
+			<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+					<li><a href="about-geez.html">About Geez</a></li>
+					<li><a href="about-amharic.html">About Amharic</a></li>
+					<li><a href="currency-converter.html">Currency Converter</a></li>
+                    <li><a href="ec-to-gc.html">Ethiopian date to Gregorian date</a></li>
+                    
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<main>
+		<section>
+			<body>
+				<form onsubmit="return ethiopianToGregorian()">
+					<label for="ethYear">Ethiopian Year:</label>
+					<input type="number" id="ethYear" required><br>
+					<label for="ethMonth">Ethiopian Month (1-13):</label>
+					<input type="number" id="ethMonth" required><br>
+					<label for="ethDay">Ethiopian Day (1-30):</label>
+					<input type="number" id="ethDay" required><br>
+					<button type="submit">Convert</button>
+				</form>
+				<p id="result"></p>
+		</section>
+	</main>
+	<footer>
+		
+	
+		<!-- Email and Phone number on the right -->
+		<div class="contact-info">
+			<h2 class="h2">Phone Number:- <a href="tel:+251-904262728">+251-904262728</a></h2>
+			<h2 class="h2"> Email:-<a href="mailto:nsc.eth@gamil.com">nsc.eth@gamil.com</a></h2>
+		</div>
+	
+		<!-- Clear the floats to ensure proper alignment -->
+		<p>&copy; 2023 About Ethiopia(NSC)</p>
+	</footer>
+	
+</body>
+</html>

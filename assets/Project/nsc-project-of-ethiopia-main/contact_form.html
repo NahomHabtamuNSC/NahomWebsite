@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Us</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTmEQcyhsev3RY_Rqg4rY35VTnD5l_NBNsI1xFU6Xn5TDD5P8mBR4izQ3ci0EmrHQFwWc&usqp=CAU">
+	
+</head>
+<body >
+    <img src="https://cdn.britannica.com/12/12-004-A40EEB6F/Flag-Ethiopia.jpg" alt="Ethiopian Flag" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+	<header>
+		<div class="container">
+			<h1>Contact Us</h1>
+			<nav>
+				<ul>
+					<li><a href="about-geez.html">About Geez</a></li>
+					<li><a href="about-amharic.html">About Amharic</a></li>
+					<li><a href="currency-converter.html">Currency Converter</a></li>
+                    <li><a href="ec-to-gc.html">Ethiopian date to Gregorian date</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<main>
+		<section>
+            <h1>Contact Us</h1>
+            <form id="contactForm" action="process_form.php" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+        
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone"><br><br>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea><br><br>
+                
+                <button type="submit">Submit</button>
+            </form>
+            
+
+        
+            <div id="phoneNumberDisplay"></div>
+        
+            <script>
+                fetch("process_form.php", {
+    // ...
+});
+
+                document.getElementById("contactForm").addEventListener("submit", function (event) {
+                    event.preventDefault(); // Prevent the form from submitting the traditional way
+            
+                    // Get form data
+                    var formData = new FormData(this);
+            
+                    // Send form data to the server using a POST request
+                    fetch("process_form.php", {
+                        method: "POST",
+                        body: formData,
+                    })
+                    .then(function (response) {
+                        if (!response.ok) {
+                            throw new Error("Server response was not OK");
+                        }
+                        return response.text(); // Get the response text from the server
+                    })
+                    .then(function (data) {
+                        // Display the phone number on the HTML page
+                        var phoneNumber = document.getElementById("phone").value;
+                        var phoneNumberDisplay = document.getElementById("phoneNumberDisplay");
+                        phoneNumberDisplay.textContent = "Phone Number: " + phoneNumber;
+                        
+                        alert("Message sent successfully!");
+                        document.getElementById("contactForm").reset();
+                    })
+                    .catch(function (error) {
+                        console.error("Error:", error);
+                    });
+                });
+                fetch("process_form.php", {
+    // ...
+})
+
+            </script>
+            
+
+		</section>
+	</main>
+	<footer>
+        <!-- Map on the left -->
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d985.143021058102!2d38.81275512572886!3d9.011463192833272!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85d050c6e95d%3A0x53bf64de6873274!2sRas%20Agez%20Supermarket!5e0!3m2!1sen!2set!4v1696019662532!5m2!1sen!2set" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    
+        <!-- Email and Phone number on the right -->
+        <div class="contact-info">
+            <h2 class="h2">Phone Number:- <a href="tel:+251-904262728">+251-904262728</a></h2>
+            <h2 class="h2"> Email:-<a href="mailto:nsc.eth@gamil.com">nsc.eth@gamil.com</a></h2>
+        </div>
+    
+        <!-- Clear the floats to ensure proper alignment -->
+        <p>&copy; 2023 About Ethiopia(NSC)</p>
+    </footer>
+    
+</body>
+</html>

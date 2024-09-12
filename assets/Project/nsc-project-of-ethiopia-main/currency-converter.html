@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Currency Converter</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTmEQcyhsev3RY_Rqg4rY35VTnD5l_NBNsI1xFU6Xn5TDD5P8mBR4izQ3ci0EmrHQFwWc&usqp=CAU"
+		/>
+		<script>
+		const Rates = {
+    USD: {
+        EUR: 1.0744,
+        GBP: 1.2558,
+        JPY: 156,
+        AUD: 0.6579,
+        CHF: 0.9073,
+        INR: 83.3795,
+        ETB: 52.37,  // Hypothetical rate
+        CAD: 1.2873,
+        SEK: 10.9703,
+        NZD: 1.5234,
+        SGD: 1.3576,
+        ZAR: 17.2034
+    },
+    EUR: {
+        USD: 0.9307,
+        GBP: 1.1693,
+        JPY: 145.22,
+        AUD: 0.6124,
+        CHF: 0.8448,
+        INR: 77.66,
+        ETB: 48.72,
+        CAD: 1.1997,
+        SEK: 10.2379,
+        NZD: 1.4217,
+        SGD: 1.2653,
+        ZAR: 16.0446
+    },
+    GBP: {
+        USD: 0.7959,
+        EUR: 0.8551,
+        JPY: 124.26,
+        AUD: 0.5238,
+        CHF: 0.7221,
+        INR: 66.44,
+        ETB: 41.22,
+        CAD: 1.6342,
+        SEK: 11.9762,
+        NZD: 1.9534,
+        SGD: 1.7482,
+        ZAR: 18.8891
+    },
+    JPY: {
+        USD: 0.0064,
+        EUR: 0.0069,
+        GBP: 0.0080,
+        AUD: 0.0042,
+        CHF: 0.0058,
+        INR: 0.5347,
+        ETB: 0.3345,
+        CAD: 0.0082,
+        SEK: 0.0883,
+        NZD: 0.0098,
+        SGD: 0.0093,
+        ZAR: 0.1115
+    },
+    AUD: {
+        USD: 1.5205,
+        EUR: 1.6332,
+        GBP: 1.9105,
+        JPY: 239.77,
+        CHF: 1.3772,
+        INR: 127.68,
+        ETB: 79.34,
+        CAD: 1.9425,
+        SEK: 20.9224,
+        NZD: 2.3136,
+        SGD: 2.2051,
+        ZAR: 26.4245
+    },
+    CHF: {
+        USD: 1.1022,
+        EUR: 1.1838,
+        GBP: 1.3847,
+        JPY: 173.97,
+        AUD: 0.7261,
+        INR: 92.72,
+        ETB: 57.65,
+        CAD: 1.4104,
+        SEK: 15.1992,
+        NZD: 1.6792,
+        SGD: 1.6008,
+        ZAR: 19.1782
+    },
+    INR: {
+        USD: 0.0120,
+        EUR: 0.0129,
+        GBP: 0.0150,
+        JPY: 1.8701,
+        AUD: 0.0078,
+        CHF: 0.0108,
+        ETB: 0.6235,
+        CAD: 0.0152,
+        SEK: 0.1641,
+        NZD: 0.0181,
+        SGD: 0.0173,
+        ZAR: 0.2069
+    },
+    ETB: {
+        USD: 0.0191,
+        EUR: 0.0205,
+        GBP: 0.0240,
+        JPY: 3.00,
+        AUD: 0.0126,
+        CHF: 0.0173,
+        INR: 1.6043,
+        CAD: 0.0244,
+        SEK: 0.2632,
+        NZD: 0.0290,
+        SGD: 0.0277,
+        ZAR: 0.3319
+    }
+};
+
+
+function convert() {
+    const amount = parseFloat(document.getElementById("amount").value);
+    const from = document.getElementById("from").value;
+    const to = document.getElementById("to").value;
+    const value = Rate[from][to] * amount;
+    document.getElementById("value").value = value.toFixed(2) + " " + to;
+}
+
+		</script>		
+	</head>
+	<body>
+		<img src="https://cdn.britannica.com/12/12-004-A40EEB6F/Flag-Ethiopia.jpg" alt="Ethiopian Flag" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+		<header>
+			<div class="container">
+				<h1>Currency Converter</h1>
+				<nav>
+					<ul>
+						<li><a href="contact_form.html">Contact Us</a></li>
+						<li><a href="about.html">About Us</a></li>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about-geez.html">About Geez</a></li>
+						<li><a href="about-amharic.html">About Amharic</a></li>
+						<li><a href="ec-to-gc.html">Ethiopian date to Gregorian date</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main>
+			<section>
+				<div class="container">
+					<h2>Ethiopian Birr (ETB) Converter</h2>
+					<p>
+						Use this currency converter to convert Ethiopian Birr (ETB) to other
+						currencies.
+					</p> <h1>Last Update on 11/16/2023</h1>
+					<form id="form">
+						<label for="amount">Amount:</label>
+						<input type="number" id="amount" name="amount" required />
+						<label for="from">From:</label>
+						<select id="from" name="from" required>
+							<option value="ETB">Ethiopian Birr (ETB)</option>
+							<option value="USD">US Dollar (USD)</option>
+							<option value="EUR">Euro (EUR)</option>
+							<option value="INR">Indian Rupee (INR)</option>
+							<option value="GBP">British Pound (GBP)</option>
+							<option value="CAD">Canadian Dollar (CAD)</option>
+							<option value="JPY">Japanese Yen (JPY)</option>
+							<option value="AUD">Australian Dollar (AUD)</option>
+							<option value="RUB">Russian Ruble (RUB)</option>
+							<option value="AED">United Arab Emirates Dirham (AED)</option>
+							<option value="ILS">Israeli New Shekel (ILS)</option>
+						</select>
+						<label for="to">To:</label>
+						<select id="to" name="to" required>
+							<option value="USD">US Dollar (USD)</option>
+							<option value="EUR">Euro (EUR)</option>
+							<option value="ETB">Ethiopian Birr (ETB)</option>
+							<option value="INR">Indian Rupee (INR)</option>
+							<option value="GBP">British Pound (GBP)</option>
+							<option value="CAD">Canadian Dollar (CAD)</option>
+							<option value="JPY">Japanese Yen (JPY)</option>
+							<option value="AUD">Australian Dollar (AUD)</option>
+							<option value="RUB">Russian Ruble (RUB)</option>
+							<option value="AED">United Arab Emirates Dirham (AED)</option>
+							<option value="ILS">Israeli New Shekel (ILS)</option>
+						</select>
+						<label for="amount">Value:</label>
+						<input disabled id="value" />
+						<button type="button" onclick="convert()">Convert</button>
+					</form>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<!-- Map on the left -->
+		
+			<!-- Email and Phone number on the right -->
+			<div class="contact-info">
+				<h2 class="h2">Phone Number:- <a href="tel:+251-904262728">+251-904262728</a></h2>
+				<h2 class="h2"> Email:-<a href="mailto:nsc.eth@gamil.com">nsc.eth@gamil.com</a></h2>
+			</div>
+		
+			<!-- Clear the floats to ensure proper alignment -->
+			<p>&copy; 2023 About Ethiopia(NSC)</p>
+		</footer>
+	</body>
+</html>
