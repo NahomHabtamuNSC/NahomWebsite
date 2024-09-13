@@ -332,6 +332,58 @@ html {
     scrollbar-color: #ffd700 #000000; /* Golden thumb and light track */
     scrollbar-width: thin;
 }
+/* styles.css */
+
+/* Loading screen styling */
+#loading {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #1a1a1a; /* Dark background */
+    color: #f1c40f; /* Gold color for text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it stays on top */
+    opacity: 1; /* Initially fully visible */
+    transition: opacity 0.8s ease; /* Smooth transition for fade-out */
+}
+
+/* Spinner design for the loading screen */
+.spinner {
+    border: 6px solid rgba(241, 196, 15, 0.2); /* Light gold */
+    border-top: 6px solid #f1c40f; /* Gold spinner */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+/* Loading text */
+.loading-text {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-family: Arial, sans-serif;
+}
+
+/* Spinner animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Initially hide main content */
+#main-content {
+    opacity: 0;
+    transform: translateY(30px); /* Slight slide effect */
+    transition: opacity 0.8s ease, transform 0.8s ease; /* Smooth transition */
+}
+
+/* Show main content when loaded */
+#main-content.show {
+    opacity: 1;
+    transform: translateY(0); /* Reset transform */
+}
 
 
 

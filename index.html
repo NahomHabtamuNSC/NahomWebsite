@@ -19,9 +19,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    
+    <!-- Loading Screen -->
+<div id="loading">
+    <div class="spinner"></div>
+    <div class="loading-text">Loading...</div>
+</div>
+
 <!-- Main Content -->
-<div id="main-content" >
+<div id="main-content"  >
     <!-- Your existing content here -->
     <!-- Header Section -->
     <header>
@@ -188,7 +193,28 @@
 
     <!-- Modal -->
     
-   
+    <script>
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loading');
+            const mainContent = document.getElementById('main-content');
+    
+            // Simulate loading screen, then hide it and show the main content
+            setTimeout(function() {
+                loadingScreen.style.opacity = '0'; // Fade out loading screen
+                loadingScreen.style.transition = 'opacity 0.8s ease';
+                
+                // After the fade-out transition, hide the loading div
+                setTimeout(function() {
+                    loadingScreen.style.display = 'none'; // Fully hide the loading screen
+                    mainContent.style.display = 'block'; // Show main content
+    
+                    // Add the 'show' class to trigger smooth fade-in of content
+                    mainContent.classList.add('show');
+                }, 800); // 800ms matches the fade-out time
+            }, 1000); // Adjust the delay to match your content loading time
+        });
+    </script>
+    
     
     <!-- Scripts -->
     <script type="module" src="./assets/js/app.js"></script>
