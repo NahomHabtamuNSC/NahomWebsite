@@ -5,18 +5,29 @@
     box-sizing: border-box;
 }
 
+/* CSS VARIABLES */
+:root {
+    --primary-color: #ffd700;
+    --secondary-color: #111;
+    --text-color: #f1f1f1;
+    --hover-color: #e5c100;
+    --bg-dark: #000;
+    --bg-light: #333;
+    --accent-color: #8a2be2;
+}
+
 /* BODY STYLING */
 body {
     font-family: Arial, sans-serif;
-    background-color: #000;
-    color: #ffd700;
+    background-color: var(--bg-dark);
+    color: var(--primary-color);
     line-height: 1.6;
     animation: fadeInBody 2s ease;
 }
 
 /* TYPOGRAPHY */
 h1, h2, h3, h4, h5, h6 {
-    color: #ffd700;
+    color: var(--primary-color);
     margin-bottom: 10px;
 }
 
@@ -28,7 +39,7 @@ p {
 header {
     padding: 20px;
     text-align: center;
-    background-color: #111;
+    background-color: var(--secondary-color);
 }
 
 nav ul {
@@ -36,7 +47,7 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
-    background: #333;
+    background: var(--bg-light);
     margin-top: 10px;
 }
 
@@ -46,22 +57,22 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #ffd700;
+    color: var(--primary-color);
     padding: 10px 20px;
     display: block;
     transition: background 0.3s, color 0.3s;
 }
 
 nav ul li a:hover {
-    background: #ffd700;
-    color: #000;
+    background: var(--primary-color);
+    color: var(--bg-dark);
     border-radius: 5px;
 }
 
 /* BUTTON STYLES */
 button.primary {
-    background-color: #ffd700;
-    color: #000;
+    background-color: var(--primary-color);
+    color: var(--bg-dark);
     padding: 10px 20px;
     border: none;
     cursor: pointer;
@@ -69,7 +80,7 @@ button.primary {
 }
 
 button.primary:hover {
-    background-color: #fff;
+    background-color: var(--hover-color);
 }
 
 /* FORM STYLING */
@@ -78,10 +89,10 @@ form input, form textarea {
     width: 100%;
     margin: 10px 0;
     padding: 10px;
-    border: 1px solid #ffd700;
+    border: 1px solid var(--primary-color);
     border-radius: 5px;
-    background: #111;
-    color: #ffd700;
+    background: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 form textarea {
@@ -97,15 +108,51 @@ form textarea {
 
 /* GRID ITEMS */
 .grid-item {
-    background-color: #333;
+    background-color: var(--bg-light);
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
+    color: var(--text-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.grid-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.grid-item p {
+    color: #d3d3d3;
+    margin-bottom: 15px;
+}
+
+/* Project link style */
+.project-link {
+    color: var(--accent-color);
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid transparent;
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    color: var(--text-color);
+    background-color: var(--accent-color);
+    border-radius: 5px;
+    text-decoration: underline;
+}
+
+/* Hover effect for grid-item */
+.grid-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* SOCIAL MEDIA LINKS */
 .social-media a {
-    color: #ffd700;
+    color: var(--primary-color);
     text-decoration: none;
     font-size: 24px;
     margin: 0 10px;
@@ -113,15 +160,15 @@ form textarea {
 }
 
 .social-media a:hover {
-    color: #fff;
+    color: var(--text-color);
 }
 
 /* FOOTER */
 footer {
-    background-color: #111;
+    background-color: var(--secondary-color);
     padding: 20px;
     text-align: center;
-    color: #ffd700;
+    color: var(--primary-color);
 }
 
 /* MODAL */
@@ -161,9 +208,6 @@ footer {
 
 /* RESPONSIVE LAYOUT */
 @media (max-width: 768px) {
-    .container {
-        width: 95%;
-    }
     .grid-container {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -177,18 +221,20 @@ footer {
         margin: 5px 0;
     }
 }
+
 /* ABOUT IMG */
 .about-img img {
-    width: 300px; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: Adds shadow for better visibility */
+    width: 300px;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+
 /* DOWNLOAD CV BUTTON */
 .btn-download {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #ffd700;
-    color: #000;
+    background-color: var(--primary-color);
+    color: var(--bg-dark);
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
@@ -196,8 +242,9 @@ footer {
 }
 
 .btn-download:hover {
-    background-color: #e5c100;
+    background-color: var(--hover-color);
 }
+
 /* SCORING SECTION */
 #scoring {
     background-color: #222;
@@ -219,7 +266,7 @@ footer {
 
 .progress {
     height: 100%;
-    width: 0; /* Starts at 0% and animates to full width */
+    width: 0;
     transition: width 2s ease-in-out;
 }
 
@@ -239,24 +286,24 @@ footer {
     background-color: #61dbfb;
 }
 
-/* Animations (Example percentages) */
+/* Skills Animation */
 .skill:nth-of-type(1) .progress {
-    width: 90%; /* HTML */
+    width: 90%;
 }
 
 .skill:nth-of-type(2) .progress {
-    width: 80%; /* CSS */
+    width: 80%;
 }
 
 .skill:nth-of-type(3) .progress {
-    width: 75%; /* JavaScript */
+    width: 75%;
 }
 
 .skill:nth-of-type(4) .progress {
-    width: 70%; /* React.js */
+    width: 70%;
 }
 
-/* Spinner keyframes animation */
+/* Spinner */
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -265,126 +312,69 @@ footer {
         transform: rotate(360deg);
     }
 }
-.grid-item {
-    background-color: #2e2e2e; /* Dark background */
-    padding: 20px;
-    border-radius: 10px;
-    color: #f1f1f1; /* Light text */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    text-align: center; /* Center content */
-    transition: transform 0.3s ease; /* Animation for hover effect */
-}
 
-.grid-item h3 {
-    color: #ffd700; /* Golden color for title */
-    margin-bottom: 10px;
-}
-
-.grid-item p {
-    color: #d3d3d3; /* Light gray for description */
-    margin-bottom: 15px;
-}
-
-/* Project link style */
-.project-link {
-    color: #8a2be2; /* Purple color */
-    font-weight: bold;
-    text-decoration: none; /* Remove underline */
-    border: 2px solid transparent;
-    padding: 5px 15px;
-    transition: all 0.3s ease;
-}
-
-.project-link:hover {
-    color: #fff; /* White text on hover */
-    background-color: #8a2be2; /* Purple background on hover */
-    border-radius: 5px; /* Rounded corners */
-    text-decoration: underline; /* Optional underline on hover */
-}
-
-/* Hover effect for grid-item */
-.grid-item:hover {
-    transform: scale(1.05); /* Slight zoom effect */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow */
-}
-/* For modern browsers like Chrome, Edge, and Safari */
+/* Scrollbar Styling */
 ::-webkit-scrollbar {
     width: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #ffd700; /* Golden color for the scrollbar */
+    background-color: var(--primary-color);
     border-radius: 10px;
-    border: 2px solid #000; /* Optional border for contrast */
+    border: 2px solid var(--bg-dark);
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #f1f1f1; /* Track color */
+    background-color: #f1f1f1;
 }
 
-/* Add smooth scroll behavior */
 html {
     scroll-behavior: smooth;
 }
 
-/* For Firefox */
 html {
-    scrollbar-color: #ffd700 #000000; /* Golden thumb and light track */
+    scrollbar-color: var(--primary-color) var(--bg-dark);
     scrollbar-width: thin;
 }
-/* styles.css */
 
-/* Loading screen styling */
+/* Loading Screen */
 #loading {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: #1a1a1a; /* Dark background */
-    color: #f1c40f; /* Gold color for text */
+    background-color: var(--bg-light);
+    color: var(--primary-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999; /* Ensure it stays on top */
-    opacity: 1; /* Initially fully visible */
-    transition: opacity 0.8s ease; /* Smooth transition for fade-out */
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.8s ease;
 }
 
-/* Spinner design for the loading screen */
 .spinner {
-    border: 6px solid rgba(241, 196, 15, 0.2); /* Light gold */
-    border-top: 6px solid #f1c40f; /* Gold spinner */
+    border: 6px solid rgba(241, 196, 15, 0.2);
+    border-top: 6px solid var(--primary-color);
     border-radius: 50%;
     width: 50px;
     height: 50px;
     animation: spin 1s linear infinite;
 }
 
-/* Loading text */
 .loading-text {
     margin-top: 20px;
     font-size: 1.2em;
     font-family: Arial, sans-serif;
 }
 
-/* Spinner animation */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Initially hide main content */
+/* Main content */
 #main-content {
     opacity: 0;
-    transform: translateY(30px); /* Slight slide effect */
-    transition: opacity 0.8s ease, transform 0.8s ease; /* Smooth transition */
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-/* Show main content when loaded */
 #main-content.show {
     opacity: 1;
-    transform: translateY(0); /* Reset transform */
+    transform: translateY(0);
 }
-
-
-
-
